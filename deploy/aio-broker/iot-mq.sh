@@ -2,6 +2,9 @@
 scriptdir="$(dirname "$0")"
 cd "$scriptdir"
 
+k3d cluster delete --all
+k3d cluster create myClusterMq1 -p '1883:1883@loadbalancer' -p '8883:8883@loadbalancer'
+kubectl config set-context k3d-myClusterMq1 --namespace=azure-iot-operations
 az extension add --upgrade --name azure-iot-ops
 helm repo add jetstack https://charts.jetstack.io --force-update
 helm upgrade cert-manager jetstack/cert-manager --install --create-namespace -n cert-manager --version v1.16 --set crds.enabled=true --set extraArgs={--enable-certificate-owner-ref=true} --wait

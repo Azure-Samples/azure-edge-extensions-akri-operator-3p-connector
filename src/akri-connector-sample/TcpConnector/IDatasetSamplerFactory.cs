@@ -1,6 +1,6 @@
 ﻿using Azure.Iot.Operations.Services.AzureDeviceRegistry;
 
-namespace TcpConnector
+namespace BmwTcpAdapter
 {
     /// <summary>
     /// Factory interface for creating <see cref="IDatasetSampler"/> instances. For an example, see the HttpThermostatHttpThermostatConnectorApp sample code.

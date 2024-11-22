@@ -1,7 +1,8 @@
 ﻿using Azure.Iot.Operations.Services.AzureDeviceRegistry;
+using BmwTcpAdapter.Accessor;
 using Rfc1006LibNet.Advanced;
 
-namespace TcpConnector
+namespace BmwTcpAdapter
 {
 	public class TcpDatasetSamplerFactory : IDatasetSamplerFactory
 	{

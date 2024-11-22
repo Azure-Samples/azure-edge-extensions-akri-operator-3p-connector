@@ -1,7 +1,7 @@
 ﻿using Azure.Iot.Operations.Services.AzureDeviceRegistry;
 using Rfc1006LibNet.Advanced.EventArgs;
 
-namespace TcpConnector
+namespace BmwTcpAdapter
 {
 	/// <summary>
 	/// A sampler of a single dataset within an asset for a TCP server.
