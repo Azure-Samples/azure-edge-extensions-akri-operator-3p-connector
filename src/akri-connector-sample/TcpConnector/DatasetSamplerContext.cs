@@ -1,4 +1,4 @@
-﻿namespace BmwTcpAdapter
+﻿namespace TcpConnector
 {
 	/// <summary>
 	/// A bundle of asset name + dataset name in one class to fit how <see cref="Timer"/> passes around context

@@ -3,11 +3,27 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.002.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "akri-connector-sample", "akri-connector-sample", "{8B6F72BE-45AC-48BD-B0CE-B18E88C644A6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TcpConnector", "akri-connector-sample\TcpConnector\TcpConnector.csproj", "{9A02426C-0765-43DB-A5BD-C66457E28484}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HttpThermostatConnectorApp", "akri-connector-sample\HttpThermostatConnectorApp\HttpThermostatConnectorApp.csproj", "{3FA1A24B-53DE-4389-9710-A87E2F06E99E}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "deploy", "deploy", "{65C870DA-8BB4-4365-AFA8-22998C203ACF}"
+	ProjectSection(SolutionItems) = preProject
+		..\deploy\connector-config.yaml = ..\deploy\connector-config.yaml
+		..\deploy\http-server-asset-definition-1.yaml = ..\deploy\http-server-asset-definition-1.yaml
+		..\deploy\http-server-asset-definition-2.yaml = ..\deploy\http-server-asset-definition-2.yaml
+		..\deploy\http-server-asset-endpoint-profile-definition.yaml = ..\deploy\http-server-asset-endpoint-profile-definition.yaml
+		..\deploy\mqttclient.yaml = ..\deploy\mqttclient.yaml
+		..\deploy\tcp-asset-definition.yaml = ..\deploy\tcp-asset-definition.yaml
+		..\deploy\tcp-asset-endpoint-profile-definition.yaml = ..\deploy\tcp-asset-endpoint-profile-definition.yaml
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BmwTcpAdapter", "akri-connector-sample\BmwTcpAdapter\BmwTcpAdapter.csproj", "{9A02426C-0765-43DB-A5BD-C66457E28484}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "aio-broker", "aio-broker", "{DA21ED68-0A9C-4364-ACD4-078EC25DEFE9}"
+	ProjectSection(SolutionItems) = preProject
+		..\deploy\aio-broker\broker-consolidated.yaml = ..\deploy\aio-broker\broker-consolidated.yaml
+		..\deploy\aio-broker\broker-values.yaml = ..\deploy\aio-broker\broker-values.yaml
+		..\deploy\aio-broker\iot-mq.sh = ..\deploy\aio-broker\iot-mq.sh
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestThermostatConnectorApp", "akri-connector-sample\RestThermostatConnectorApp\RestThermostatConnectorApp.csproj", "{B69EABA4-172B-48C2-A538-FBA510660849}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,23 +31,22 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{3FA1A24B-53DE-4389-9710-A87E2F06E99E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3FA1A24B-53DE-4389-9710-A87E2F06E99E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3FA1A24B-53DE-4389-9710-A87E2F06E99E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3FA1A24B-53DE-4389-9710-A87E2F06E99E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9A02426C-0765-43DB-A5BD-C66457E28484}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9A02426C-0765-43DB-A5BD-C66457E28484}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9A02426C-0765-43DB-A5BD-C66457E28484}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9A02426C-0765-43DB-A5BD-C66457E28484}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B69EABA4-172B-48C2-A538-FBA510660849}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B69EABA4-172B-48C2-A538-FBA510660849}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B69EABA4-172B-48C2-A538-FBA510660849}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B69EABA4-172B-48C2-A538-FBA510660849}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DA21ED68-0A9C-4364-ACD4-078EC25DEFE9} = {65C870DA-8BB4-4365-AFA8-22998C203ACF}
+	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B66B2B2D-5C33-493E-8337-3E95BB412851}
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{3FA1A24B-53DE-4389-9710-A87E2F06E99E} = {8B6F72BE-45AC-48BD-B0CE-B18E88C644A6}
-		{9A02426C-0765-43DB-A5BD-C66457E28484} = {8B6F72BE-45AC-48BD-B0CE-B18E88C644A6}
 	EndGlobalSection
 EndGlobal

@@ -1,12 +1,8 @@
-﻿using System.Net.Http.Headers;
-using System.Runtime.InteropServices;
-using System.Security.Cryptography;
-using System.Text;
-using Azure.Iot.Operations.Services.AzureDeviceRegistry;
+﻿using Azure.Iot.Operations.Services.AzureDeviceRegistry;
 using Rfc1006LibNet.Advanced;
 using Rfc1006LibNet.Advanced.EventArgs;
 
-namespace BmwTcpAdapter
+namespace TcpConnector
 {
     /// <inheritdoc />
     internal class TcpDatasetSampler : IDatasetSampler

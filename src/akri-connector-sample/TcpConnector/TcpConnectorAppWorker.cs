@@ -9,7 +9,7 @@ using Azure.Iot.Operations.Services.AzureDeviceRegistry;
 using Azure.Iot.Operations.Services.SchemaRegistry;
 using Azure.Iot.Operations.Services.SchemaRegistry.dtmi_ms_adr_SchemaRegistry__1;
 
-namespace BmwTcpAdapter
+namespace TcpConnector
 {
 	public class TcpConnectorAppWorker : BackgroundService
 	{
