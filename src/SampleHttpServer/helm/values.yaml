@@ -1,0 +1,38 @@
+# Default values for http-server.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+namespace: azure-iot-operations
+
+labels:
+  app: http-server-deployment
+
+secret:
+  name: http-server-auth-creds
+  usernameKey: username
+  usernameValue: some-username
+  passwordKey: password
+  passwordValue: some-password
+
+deployment:
+  name: http-server-deployment
+  replicas: 1
+  image: akribuilds.azurecr.io/samples/sample-http-server:0.1.2
+  imagePullPolicy: IfNotPresent
+  envVar:
+    username: SERVICE_USERNAME
+    password: SERVICE_PASSWORD
+  resources:
+    limits:
+      memory: "128Mi"
+      cpu: "500m"
+    requests:
+      memory: "64Mi"
+      cpu: "250m"
+
+service:
+  name: http-server-service
+  type: ClusterIP
+  port: 80
+  protocol: TCP
+  targetPort: 80

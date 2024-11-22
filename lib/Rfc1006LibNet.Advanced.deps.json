@@ -1,0 +1,301 @@
+{
+  "runtimeTarget": {
+    "name": ".NETStandard,Version=v2.0/",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETStandard,Version=v2.0": {},
+    ".NETStandard,Version=v2.0/": {
+      "Rfc1006LibNet.Advanced/1.0.0": {
+        "dependencies": {
+          "Microsoft.Win32.Registry": "4.7.0",
+          "NETStandard.Library": "2.0.3",
+          "System.Management": "4.7.0",
+          "System.Text.Encoding.CodePages": "4.5.0",
+          "Traeger.Utilities": "1.7.16",
+          "Traeger.Utilities.Licensing": "1.7.1",
+          "Traeger.Utilities.Licensing.Code": "1.9.1",
+          "Traeger.Utilities.Platform": "1.9.7",
+          "Traeger.Utilities.Reflection": "1.5.13",
+          "Traeger.Utilities.Resources": "1.0.3"
+        },
+        "runtime": {
+          "Rfc1006LibNet.Advanced.dll": {}
+        }
+      },
+      "Microsoft.NETCore.Platforms/1.1.0": {},
+      "Microsoft.Win32.Registry/4.7.0": {
+        "dependencies": {
+          "System.Buffers": "4.5.0",
+          "System.Memory": "4.5.3",
+          "System.Security.AccessControl": "4.7.0",
+          "System.Security.Principal.Windows": "4.7.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Win32.Registry.dll": {
+            "assemblyVersion": "4.1.3.0",
+            "fileVersion": "4.700.19.56404"
+          }
+        }
+      },
+      "NETStandard.Library/2.0.3": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "1.1.0"
+        }
+      },
+      "System.Buffers/4.5.0": {
+        "runtime": {
+          "lib/netstandard2.0/System.Buffers.dll": {
+            "assemblyVersion": "4.0.3.0",
+            "fileVersion": "4.6.26515.6"
+          }
+        }
+      },
+      "System.CodeDom/4.7.0": {
+        "runtime": {
+          "lib/netstandard2.0/System.CodeDom.dll": {
+            "assemblyVersion": "4.0.3.0",
+            "fileVersion": "4.700.19.56404"
+          }
+        }
+      },
+      "System.Management/4.7.0": {
+        "dependencies": {
+          "System.CodeDom": "4.7.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Management.dll": {
+            "assemblyVersion": "4.0.1.0",
+            "fileVersion": "4.700.19.56404"
+          }
+        }
+      },
+      "System.Memory/4.5.3": {
+        "dependencies": {
+          "System.Buffers": "4.5.0",
+          "System.Numerics.Vectors": "4.4.0",
+          "System.Runtime.CompilerServices.Unsafe": "4.5.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Memory.dll": {
+            "assemblyVersion": "4.0.1.1",
+            "fileVersion": "4.6.27617.2"
+          }
+        }
+      },
+      "System.Numerics.Vectors/4.4.0": {
+        "runtime": {
+          "lib/netstandard2.0/System.Numerics.Vectors.dll": {
+            "assemblyVersion": "4.1.3.0",
+            "fileVersion": "4.6.25519.3"
+          }
+        }
+      },
+      "System.Runtime.CompilerServices.Unsafe/4.5.2": {
+        "runtime": {
+          "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {
+            "assemblyVersion": "4.0.4.1",
+            "fileVersion": "4.6.26919.2"
+          }
+        }
+      },
+      "System.Security.AccessControl/4.7.0": {
+        "dependencies": {
+          "System.Security.Principal.Windows": "4.7.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Security.AccessControl.dll": {
+            "assemblyVersion": "4.1.3.0",
+            "fileVersion": "4.700.19.56404"
+          }
+        }
+      },
+      "System.Security.Principal.Windows/4.7.0": {
+        "runtime": {
+          "lib/netstandard2.0/System.Security.Principal.Windows.dll": {
+            "assemblyVersion": "4.1.3.0",
+            "fileVersion": "4.700.19.56404"
+          }
+        }
+      },
+      "System.Text.Encoding.CodePages/4.5.0": {
+        "dependencies": {
+          "System.Runtime.CompilerServices.Unsafe": "4.5.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Text.Encoding.CodePages.dll": {
+            "assemblyVersion": "4.1.1.0",
+            "fileVersion": "4.6.26515.6"
+          }
+        }
+      },
+      "Traeger.Utilities/1.7.16": {
+        "dependencies": {
+          "Traeger.Utilities.Resources": "1.0.3"
+        }
+      },
+      "Traeger.Utilities.Licensing/1.7.1": {
+        "dependencies": {
+          "Traeger.Utilities": "1.7.16",
+          "Traeger.Utilities.Reflection": "1.5.13",
+          "Traeger.Utilities.Resources": "1.0.3"
+        }
+      },
+      "Traeger.Utilities.Licensing.Code/1.9.1": {
+        "dependencies": {
+          "Traeger.Utilities": "1.7.16",
+          "Traeger.Utilities.Licensing": "1.7.1",
+          "Traeger.Utilities.Platform": "1.9.7",
+          "Traeger.Utilities.Reflection": "1.5.13"
+        }
+      },
+      "Traeger.Utilities.Platform/1.9.7": {
+        "dependencies": {
+          "Traeger.Utilities": "1.7.16",
+          "Traeger.Utilities.Resources": "1.0.3"
+        }
+      },
+      "Traeger.Utilities.Reflection/1.5.13": {
+        "dependencies": {
+          "Traeger.Utilities": "1.7.16",
+          "Traeger.Utilities.Resources": "1.0.3"
+        }
+      },
+      "Traeger.Utilities.Resources/1.0.3": {}
+    }
+  },
+  "libraries": {
+    "Rfc1006LibNet.Advanced/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.NETCore.Platforms/1.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-kz0PEW2lhqygehI/d6XsPCQzD7ff7gUJaVGPVETX611eadGsA3A877GdSlU0LRVMCTH/+P3o2iDTak+S08V2+A==",
+      "path": "microsoft.netcore.platforms/1.1.0",
+      "hashPath": "microsoft.netcore.platforms.1.1.0.nupkg.sha512"
+    },
+    "Microsoft.Win32.Registry/4.7.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-KSrRMb5vNi0CWSGG1++id2ZOs/1QhRqROt+qgbEAdQuGjGrFcl4AOl4/exGPUYz2wUnU42nvJqon1T3U0kPXLA==",
+      "path": "microsoft.win32.registry/4.7.0",
+      "hashPath": "microsoft.win32.registry.4.7.0.nupkg.sha512"
+    },
+    "NETStandard.Library/2.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-st47PosZSHrjECdjeIzZQbzivYBJFv6P2nv4cj2ypdI204DO+vZ7l5raGMiX4eXMJ53RfOIg+/s4DHVZ54Nu2A==",
+      "path": "netstandard.library/2.0.3",
+      "hashPath": "netstandard.library.2.0.3.nupkg.sha512"
+    },
+    "System.Buffers/4.5.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-pL2ChpaRRWI/p4LXyy4RgeWlYF2sgfj/pnVMvBqwNFr5cXg7CXNnWZWxrOONLg8VGdFB8oB+EG2Qw4MLgTOe+A==",
+      "path": "system.buffers/4.5.0",
+      "hashPath": "system.buffers.4.5.0.nupkg.sha512"
+    },
+    "System.CodeDom/4.7.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Hs9pw/kmvH3lXaZ1LFKj3pLQsiGfj2xo3sxSzwiLlRL6UcMZUTeCfoJ9Udalvn3yq5dLlPEZzYegrTQ1/LhPOQ==",
+      "path": "system.codedom/4.7.0",
+      "hashPath": "system.codedom.4.7.0.nupkg.sha512"
+    },
+    "System.Management/4.7.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-IY+uuGhgzWiCg21i8IvQeY/Z7m1tX8VuPF+ludfn7iTCaccTtJo5HkjZbBEL8kbBubKhAKKtNXr7uMtmAc28Pw==",
+      "path": "system.management/4.7.0",
+      "hashPath": "system.management.4.7.0.nupkg.sha512"
+    },
+    "System.Memory/4.5.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3oDzvc/zzetpTKWMShs1AADwZjQ/36HnsufHRPcOjyRAAMLDlu2iD33MBI2opxnezcVUtXyqDXXjoFMOU9c7SA==",
+      "path": "system.memory/4.5.3",
+      "hashPath": "system.memory.4.5.3.nupkg.sha512"
+    },
+    "System.Numerics.Vectors/4.4.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-UiLzLW+Lw6HLed1Hcg+8jSRttrbuXv7DANVj0DkL9g6EnnzbL75EB7EWsw5uRbhxd/4YdG8li5XizGWepmG3PQ==",
+      "path": "system.numerics.vectors/4.4.0",
+      "hashPath": "system.numerics.vectors.4.4.0.nupkg.sha512"
+    },
+    "System.Runtime.CompilerServices.Unsafe/4.5.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-wprSFgext8cwqymChhrBLu62LMg/1u92bU+VOwyfBimSPVFXtsNqEWC92Pf9ofzJFlk4IHmJA75EDJn1b2goAQ==",
+      "path": "system.runtime.compilerservices.unsafe/4.5.2",
+      "hashPath": "system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512"
+    },
+    "System.Security.AccessControl/4.7.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-JECvTt5aFF3WT3gHpfofL2MNNP6v84sxtXxpqhLBCcDRzqsPBmHhQ6shv4DwwN2tRlzsUxtb3G9M3763rbXKDg==",
+      "path": "system.security.accesscontrol/4.7.0",
+      "hashPath": "system.security.accesscontrol.4.7.0.nupkg.sha512"
+    },
+    "System.Security.Principal.Windows/4.7.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ojD0PX0XhneCsUbAZVKdb7h/70vyYMDYs85lwEI+LngEONe/17A0cFaRFqZU+sOEidcVswYWikYOQ9PPfjlbtQ==",
+      "path": "system.security.principal.windows/4.7.0",
+      "hashPath": "system.security.principal.windows.4.7.0.nupkg.sha512"
+    },
+    "System.Text.Encoding.CodePages/4.5.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-S0wEUiKcLvRlkFUXca8uio1UQ5bYQzYgOmOKtCqaBQC3GR9AJjh43otcM32IGsAyvadFTaAMw9Irm6dS4Evfng==",
+      "path": "system.text.encoding.codepages/4.5.0",
+      "hashPath": "system.text.encoding.codepages.4.5.0.nupkg.sha512"
+    },
+    "Traeger.Utilities/1.7.16": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-/0HDSbLaayt7/KVKz8sTh1s2wgINZxREl8t1/CzV8/yd/UprrOST6+Sp74bd4QbSZsNBgbQVDtSJMUTacnCsRg==",
+      "path": "traeger.utilities/1.7.16",
+      "hashPath": "traeger.utilities.1.7.16.nupkg.sha512"
+    },
+    "Traeger.Utilities.Licensing/1.7.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-o/Lx1m+MFKv5Rn1Alt1rrOjZpOZYyfBSkLa/Jm10LPgfO3JFO/jLaIysp+FCEBKsB0XeM41+olBitLfpeXml7Q==",
+      "path": "traeger.utilities.licensing/1.7.1",
+      "hashPath": "traeger.utilities.licensing.1.7.1.nupkg.sha512"
+    },
+    "Traeger.Utilities.Licensing.Code/1.9.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-XmR5b0HEbOBgcCq0r/o9Wr7DNCQ1uIuDX0+o+vnsGs7vUsEq7JSidIejz/DTm8goBrzeYkg3IGcIOVGQz+O8gw==",
+      "path": "traeger.utilities.licensing.code/1.9.1",
+      "hashPath": "traeger.utilities.licensing.code.1.9.1.nupkg.sha512"
+    },
+    "Traeger.Utilities.Platform/1.9.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-BMVV/lDdTAzpBKaQ1TJBDPLIZp/fwos6aJ/z350PXty1e0Zgps6yHt5Kg8SzT3CpRwUDTPP69Ic1mutQjBdZTA==",
+      "path": "traeger.utilities.platform/1.9.7",
+      "hashPath": "traeger.utilities.platform.1.9.7.nupkg.sha512"
+    },
+    "Traeger.Utilities.Reflection/1.5.13": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-iPZG6/pB2HhuX8wXMZU5dLguDW0aFMnyCw24WM3T40tGyuDIl/XrfR3MDZ7hgqMGl7Arz4igXnEMGPUXVWWwJQ==",
+      "path": "traeger.utilities.reflection/1.5.13",
+      "hashPath": "traeger.utilities.reflection.1.5.13.nupkg.sha512"
+    },
+    "Traeger.Utilities.Resources/1.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-VbPoWx1eRPul21Xi3bV8fMkqJPJS+B6pGFgzMZpEWf3XHUkiRQwWYFIJnbnSL8KGF7WecWhE1aEqNO7ivRO+qQ==",
+      "path": "traeger.utilities.resources/1.0.3",
+      "hashPath": "traeger.utilities.resources.1.0.3.nupkg.sha512"
+    }
+  }
+}
