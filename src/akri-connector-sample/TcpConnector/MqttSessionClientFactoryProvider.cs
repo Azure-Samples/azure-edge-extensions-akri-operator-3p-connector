@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using Azure.Iot.Operations.Mqtt.Session;
 
-namespace BmwTcpAdapter;
+namespace TcpConnector;
 
 public static class MqttSessionClientFactoryProvider
 {

@@ -1,7 +1,6 @@
-using System.Reflection;
 using System.Runtime.InteropServices;
 
-namespace BmwTcpAdapter.Accessor;
+namespace TcpConnector.Accessor;
 
 /// <summary>
 /// Wrapper class to connect to Siemens PLC via TCP

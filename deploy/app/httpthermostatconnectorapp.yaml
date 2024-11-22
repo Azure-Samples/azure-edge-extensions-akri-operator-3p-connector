@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: httpthermostatconnectorapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: httpthermostatconnectorapp
+  template:
+    metadata:
+      labels:
+        app: httpthermostatconnectorapp
+    spec:
+      containers:
+      # Container for the BMW TCP Adapter C# Application 
+      - name: httpthermostatconnectorapp
+        image: __{container_registry}__/httpthermostatconnectorapp:__{image_version}__
+        imagePullPolicy: Never
+        resources:
+          requests:
+            cpu: "0.1"
+            memory: "100Mi"
+          limits:
+            cpu: "0.5"
+            memory: "500Mi"
