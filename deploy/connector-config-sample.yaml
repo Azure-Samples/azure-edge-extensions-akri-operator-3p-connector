@@ -5,4 +5,4 @@ metadata:
   namespace: azure-iot-operations
 spec:
   assetEndpointProfileType: rest-thermostat
-  image: restthermostatconnectorapp:__{image_version}__
+  image: akripreview.azurecr.io/samples/restthermostatconnectorapp:0.1.4

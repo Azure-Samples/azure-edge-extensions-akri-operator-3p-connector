@@ -6,7 +6,7 @@ To run this sample, follow the below steps:
 
 1. Deploy the MQ broker. Set up the broker to use SAT for authentication, and to use TLS for communication.
 1. Deploy a Node.js service that will simulate the [Sample REST endpoint](./SampleRestServer/ReadMe.md)
-1. The restthermostatconnectorapp image has been built and pushed to `akribuilds`: `akribuilds/samples/restthermostatconnectorapp:0.1.3`.  
+1. The restthermostatconnectorapp image has been built and pushed to `akripreview`: `akripreview/samples/restthermostatconnectorapp:0.1.4`.  
 
     Alternatively, build and push the container image to your cluster using the following command with:  
     NuGet.config  
@@ -31,10 +31,10 @@ To run this sample, follow the below steps:
     </configuration>
     ```
     `dotnet publish /t:PublishContainer`   
-    `k3d image import restthermostatconnectorapp:0.1.3 -c myClusterMq1`  
+    `k3d image import restthermostatconnectorapp:0.1.4 -c myClusterMq1`  
 
     Whichever approach you use, ensure that the correct image is specified in your ConnectorConfig.
-    This version of ConnectorConfig in this repo uses the image `akribuilds.azurecr.io/samples/restthermostatconnectorapp:0.1.3`.
+    This version of ConnectorConfig in this repo uses the image `akripreview.azurecr.io/samples/restthermostatconnectorapp:0.1.4`.
 1. Create the ConnectorConfig and AEP instance yaml files. Samples available [here](./KubernetesResources/). These instances will be monitored by the AKRI operator and will be used for workload application lifetime management. 
 Of note:
     1. The ConnectorConfig image field should specify the image name that was created in the above step.
@@ -48,5 +48,6 @@ Updating the image:
 1. `az login`   
    `az acr login --name akribuilds`
 1. `dotnet publish /t:PublishContainer`
-1. `docker tag restthermostatconnectorapp:0.1.3 akribuilds.azurecr.io/samples/restthermostatconnectorapp:0.1.3`
-1. `docker push akribuilds.azurecr.io/samples/restthermostatconnectorapp:0.1.3`
+1. `docker tag restthermostatconnectorapp:0.1.4 akribuilds.azurecr.io/samples/restthermostatconnectorapp:0.1.4`
+1. `docker push akribuilds.azurecr.io/samples/restthermostatconnectorapp:0.1.4`
+1. `az acr import --name akripreview.azurecr.io --image samples/restthermostatconnectorapp:0.1.4 --source akribuilds.azurecr.io/samples/restthermostatconnectorapp:0.1.4`
