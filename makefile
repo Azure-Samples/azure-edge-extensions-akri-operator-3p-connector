@@ -1,7 +1,7 @@
 K3DCLUSTERNAME := devcluster
 K3DREGISTRYNAME := k3d-devregistry.localhost:5500
 PORTFORWARDING := -p '8883:8883@loadbalancer' -p '1883:1883@loadbalancer'
-VERSION := $(shell grep "<ContainerImageTag>" ./src/akri-connector-sample/RestThermostatConnectorApp/RestThermostatConnectorApp.csproj | sed 's/[^0-9.]*//g')
+VERSION := $(shell grep "<ContainerImageTag>" ./src/akri-connector-sample/TcpConnector/TcpConnector.csproj | sed 's/[^0-9.]*//g')
 
 all: infra deploy_assets deploy_asset_endpoint_profile deploy_3p_connector
 
@@ -51,13 +51,13 @@ deploy_3p_connector_sample: deploy_3p_connector_config_sample
 
 build_3p_connector_image:
 	@echo "Building 3p Connector Image"
-	docker build ./src -f ./src/akri-connector-sample/TcpConnector/Dockerfile -t tcpconnector:$(VERSION)
-	k3d image import restthermostatconnectorapp:$(VERSION)
+	docker build . -f ./src/akri-connector-sample/TcpConnector/Dockerfile -t tcpconnector:$(VERSION)
+	k3d image import tcpconnector:$(VERSION) -c $(K3DCLUSTERNAME)
 
 deploy_3p_connector_config:
 	@echo "Deploying 3p Connector Config"
-	# not working on a mac
-	sed -i "s?__{image_version}__?$(VERSION)?g" ./deploy/connector-config.yaml
+	# on a mac (sed -i '' "s?__{image_version}__?$(VERSION)?g" ./deploy/connector-config.yaml)
+	sed -i '' "s?__{image_version}__?$(VERSION)?g" ./deploy/connector-config.yaml
 	kubectl apply -f ./deploy/connector-config.yaml
 
 deploy_3p_connector_config_sample:
@@ -67,3 +67,7 @@ deploy_3p_connector_config_sample:
 deploy_mqttui:
 	@echo "Deploying MQTT UI"
 	kubectl apply -f ./deploy/mqttclient.yaml
+
+clean:
+	@echo "Cleaning up..."
+	k3d cluster delete $(K3DCLUSTERNAME)

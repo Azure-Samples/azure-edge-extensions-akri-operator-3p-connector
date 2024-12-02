@@ -1,4 +1,5 @@
-﻿using Azure.Iot.Operations.Services.AzureDeviceRegistry;
+﻿using Azure.Iot.Operations.Services.Assets;
+using Azure.Iot.Operations.Connector;
 using Rfc1006LibNet.Advanced;
 using Rfc1006LibNet.Advanced.EventArgs;
 
@@ -8,39 +9,47 @@ namespace TcpConnector
     internal class TcpDatasetSampler : IDatasetSampler
     {
         private Rfc1006Client _rfcClient;
-        private string _assetName;
+        private Asset _asset;
 
         /// <summary>
         /// ctor
         /// </summary>
         /// <param name="rfcClient"></param>
-        /// <param name="assetName"></param>
-        public TcpDatasetSampler(Rfc1006Client rfcClient, string assetName)
+        /// <param name="asset"></param>
+        public TcpDatasetSampler(Rfc1006Client rfcClient, Asset asset)
         {
             _rfcClient = rfcClient;
-            _assetName = assetName;
+            _asset = asset;
         }
 
-        public void Initialize(EventHandler<TransferEventArgs> receiveCallback)
-        {
-        }
-
-        public void StartSampling(Dataset dataset, EventHandler<TransferEventArgs> receiveCallback)
+        public async Task<byte[]> SampleDatasetAsync(Dataset dataset, CancellationToken cancellationToken = default)
         {
             try
             {
-                _rfcClient.Received += receiveCallback;
+                var samplingInterval =
+                    _asset.DefaultDatasetsConfiguration?.RootElement.GetProperty("samplingInterval").GetDouble();
+                var timeToElapse = DateTime.UtcNow.AddMilliseconds(samplingInterval ?? 0);
+                
+                byte[]? payload = null;
+                _rfcClient.Received += (sender, args) =>
+                {
+                    payload = args.Buffer;
+                } ;
                 _rfcClient.Connect();
+
+                while (DateTime.UtcNow > timeToElapse)
+                {
+                    if (null != payload)
+                        break;
+                }
+                
+                _rfcClient.Stop();
+                return payload!;
             }
             catch (Exception ex)
             {
                 throw new InvalidOperationException($"Failed to initialize TCP server", ex);
             }
-        }
-
-        public void StopSampling()
-        {
-            _rfcClient.Stop();
         }
     }
 }

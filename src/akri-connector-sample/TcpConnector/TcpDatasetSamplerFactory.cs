@@ -1,4 +1,5 @@
-﻿using Azure.Iot.Operations.Services.AzureDeviceRegistry;
+﻿using Azure.Iot.Operations.Connector;
+using Azure.Iot.Operations.Services.Assets;
 using Rfc1006LibNet.Advanced;
 
 namespace TcpConnector
@@ -18,7 +19,7 @@ namespace TcpConnector
 		public IDatasetSampler CreateDatasetSampler(AssetEndpointProfile aep, Asset asset,
 			Dataset dataset)
 		{
-			if (!asset.DisplayName!.StartsWith("Siemens PLC") || !dataset.Name.Equals("siemens_plc"))
+			if (!asset.DisplayName!.StartsWith("Siemens PLC") && !dataset.Name.Equals("siemens_plc"))
 				throw new InvalidOperationException(
 					$"Unrecognized dataset with name {dataset.Name} on asset with name {asset.DisplayName}");
 			
@@ -26,7 +27,7 @@ namespace TcpConnector
 			var remoteTsap = aep.AdditionalConfiguration?.RootElement.GetProperty("localTSAP").GetString();
 			var rfcClient = new Rfc1006Client(aep.TargetAddress, localTsap, remoteTsap);
 			
-			return new TcpDatasetSampler(rfcClient, asset.DisplayName);
+			return new TcpDatasetSampler(rfcClient, asset);
 		}
 	}
 }

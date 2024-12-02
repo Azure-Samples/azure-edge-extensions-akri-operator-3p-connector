@@ -1,10 +1,10 @@
-apiVersion: deviceregistry.microsoft.com/v1beta2
+apiVersion: deviceregistry.microsoft.com/v1
 kind: Asset
 metadata:
   name: my-http-thermostat-asset-2
   namespace: azure-iot-operations
 spec:
-  displayName: My Siemens PLC Asset
+  displayName: Siemens PLC Asset
   description: A sample for an Asset modeling a device with Tcp Endpoint to Siemens PLC
   assetEndpointProfileRef: azure-iot-operations/plant-simulator-rfc1006 # <namespace>/<assetEndpointProfile.metadata.name>
   defaultDatasetsConfiguration: |-

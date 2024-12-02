@@ -5,6 +5,7 @@ namespace TcpConnector.Accessor;
 /// <summary>
 /// Wrapper class to connect to Siemens PLC via TCP
 /// </summary>
+[Obsolete("Not required as we use ")]
 public class TcpAdapter
 {
 	/// <summary>

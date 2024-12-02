@@ -8,12 +8,12 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "deploy", "deploy", "{65C870DA-8BB4-4365-AFA8-22998C203ACF}"
 	ProjectSection(SolutionItems) = preProject
 		..\deploy\connector-config.yaml = ..\deploy\connector-config.yaml
-		..\deploy\http-server-asset-definition-1.yaml = ..\deploy\http-server-asset-definition-1.yaml
-		..\deploy\http-server-asset-definition-2.yaml = ..\deploy\http-server-asset-definition-2.yaml
-		..\deploy\http-server-asset-endpoint-profile-definition.yaml = ..\deploy\http-server-asset-endpoint-profile-definition.yaml
 		..\deploy\mqttclient.yaml = ..\deploy\mqttclient.yaml
 		..\deploy\tcp-asset-definition.yaml = ..\deploy\tcp-asset-definition.yaml
 		..\deploy\tcp-asset-endpoint-profile-definition.yaml = ..\deploy\tcp-asset-endpoint-profile-definition.yaml
+		..\deploy\connector-config-sample.yaml = ..\deploy\connector-config-sample.yaml
+		..\deploy\rest-server-asset-definition.yaml = ..\deploy\rest-server-asset-definition.yaml
+		..\deploy\rest-server-asset-endpoint-profile-definition.yaml = ..\deploy\rest-server-asset-endpoint-profile-definition.yaml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "aio-broker", "aio-broker", "{DA21ED68-0A9C-4364-ACD4-078EC25DEFE9}"
@@ -24,6 +24,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "aio-broker", "aio-broker", 
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestThermostatConnectorApp", "akri-connector-sample\RestThermostatConnectorApp\RestThermostatConnectorApp.csproj", "{B69EABA4-172B-48C2-A538-FBA510660849}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{90080078-340B-4AD3-B2C4-6738A3EE772B}"
+	ProjectSection(SolutionItems) = preProject
+		..\lib\Rfc1006LibNet.Advanced.deps.json = ..\lib\Rfc1006LibNet.Advanced.deps.json
+		..\lib\Rfc1006LibNet.Advanced.dll = ..\lib\Rfc1006LibNet.Advanced.dll
+		..\lib\Rfc1006LibNet.Advanced.xml = ..\lib\Rfc1006LibNet.Advanced.xml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

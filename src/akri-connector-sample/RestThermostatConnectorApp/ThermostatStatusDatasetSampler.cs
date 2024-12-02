@@ -23,7 +23,6 @@ namespace RestThermostatConnectorApp
         /// Sample the datapoints from the REST thermostat and return the full serialized dataset.
         /// </summary>
         /// <param name="dataset">The dataset of an asset to sample.</param>
-        /// <param name="assetEndpointProfileCredentials">The credentials to use when sampling the asset. May be null if no credentials are required.</param>
         /// <param name="cancellationToken">Cancellation token.</param>
         /// <returns>The serialized payload containing the sampled dataset.</returns>
         public async Task<byte[]> SampleDatasetAsync(Dataset dataset, CancellationToken cancellationToken = default)

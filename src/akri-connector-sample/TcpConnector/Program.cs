@@ -1,3 +1,4 @@
+using Azure.Iot.Operations.Connector;
 using TcpConnector;
 
 IHost host = Host.CreateDefaultBuilder(args)
@@ -5,7 +6,7 @@ IHost host = Host.CreateDefaultBuilder(args)
     {
         services.AddSingleton(MqttSessionClientFactoryProvider.MqttSessionClientFactory);
         services.AddSingleton(TcpDatasetSamplerFactory.TcpDatasetSamplerFactoryProvider);
-        services.AddHostedService<TcpConnectorAppWorker>();
+        services.AddHostedService<ConnectorWorker>();
     })
     .Build();
 
