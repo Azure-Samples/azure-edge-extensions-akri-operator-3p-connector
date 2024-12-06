@@ -13,7 +13,7 @@ namespace TcpConnector
 {
     public class TcpConnectorWorker : BackgroundService
     {
-        private readonly ILogger<ConnectorWorker> _logger;
+        private readonly ILogger<TcpConnectorWorker> _logger;
         private readonly MqttSessionClient _sessionClient;
         private readonly IDatasetSamplerFactory _datasetSamplerFactory;
 
@@ -27,7 +27,7 @@ namespace TcpConnector
         /// <param name="mqttSessionClient">mqttSessionClient</param>
         /// <param name="datasetSamplerFactory">datasetSamplerFactory</param>
         public TcpConnectorWorker(
-            ILogger<ConnectorWorker> logger, 
+            ILogger<TcpConnectorWorker> logger, 
             MqttSessionClient mqttSessionClient, 
             IDatasetSamplerFactory datasetSamplerFactory)
         {
@@ -234,6 +234,7 @@ namespace TcpConnector
 
         private void StartSamplingAsset(AssetEndpointProfile assetEndpointProfile, Asset asset, CancellationToken cancellationToken = default)
         {
+            _logger.LogInformation("Enter StartSamplingAsset");
             string assetName = asset.DisplayName!;
 
             _datasetSamplers[assetName] = new();
@@ -261,6 +262,8 @@ namespace TcpConnector
 
         private async void SampleDataset(object? status)
         {
+            _logger.LogInformation("Enter SampleDataset");
+
             DatasetSamplerContext samplerContext = (DatasetSamplerContext)status!;
 
             Asset asset = samplerContext.Asset;
@@ -280,6 +283,7 @@ namespace TcpConnector
                 _datasetSamplers[asset.DisplayName!].TryAdd(datasetName,
                     (_datasetSamplerFactory.CreateDatasetSampler(samplerContext.AssetEndpointProfile, asset, dataset) as
                         IEventDatasetSampler)!);
+                _logger.LogInformation($"DatasetSampler for dataset {datasetName} in asset {samplerContext.Asset.DisplayName} was created.");
             }
 
             if (!_datasetSamplers[asset.DisplayName!].TryGetValue(datasetName, out IEventDatasetSampler? datasetSampler))

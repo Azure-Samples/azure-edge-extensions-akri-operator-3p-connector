@@ -5,7 +5,7 @@ namespace TcpConnector
 	/// <summary>
 	/// A bundle of asset name + dataset name in one class to fit how <see cref="Timer"/> passes around context
 	/// </summary>
-	internal class DatasetSamplerContext
+	public class DatasetSamplerContext
 	{
 		internal AssetEndpointProfile AssetEndpointProfile { get; set; }
 

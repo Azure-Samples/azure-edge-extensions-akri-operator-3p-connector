@@ -1,7 +1,7 @@
 apiVersion: deviceregistry.microsoft.com/v1
 kind: Asset
 metadata:
-  name: my-http-thermostat-asset-2
+  name: rfc1006-asset
   namespace: azure-iot-operations
 spec:
   displayName: Siemens PLC Asset
