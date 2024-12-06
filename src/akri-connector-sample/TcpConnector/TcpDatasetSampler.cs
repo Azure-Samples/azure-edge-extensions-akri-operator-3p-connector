@@ -48,6 +48,9 @@ namespace TcpConnector
 
 		private void OnReceived(object? sender, TransferEventArgs args)
 		{
+			_logger.LogInformation(
+				$"Received and publishing data for dataset {_samplerContext.DatasetName} in asset {_samplerContext.Asset.DisplayName}");
+			
 			Received?.Invoke(_samplerContext, args);
 		}
 	}
