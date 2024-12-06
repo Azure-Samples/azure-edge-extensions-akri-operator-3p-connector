@@ -132,7 +132,7 @@ namespace TcpConnector
 
                         assetMonitor.AssetChanged += (sender, args) =>
                         {
-                            _logger.LogInformation($"Recieved a notification an asset with name {args.AssetName} has been {args.ChangeType.ToString().ToLower()}.");
+                            _logger.LogInformation($"Received a notification an asset with name {args.AssetName} has been {args.ChangeType.ToString().ToLower()}.");
 
                             if (args.ChangeType == ChangeType.Deleted)
                             {
@@ -289,22 +289,23 @@ namespace TcpConnector
             }
             
             datasetSampler.Received += DatasetSamplerOnReceived;
-            byte[] serializedPayload = await datasetSampler.SampleDatasetAsync(dataset);
-
-            _logger.LogInformation($"Read dataset with name {dataset.Name} from asset with name {samplerContext.Asset.DisplayName}. Now publishing it to MQTT broker: {Encoding.UTF8.GetString(serializedPayload)}");
+            await datasetSampler.SampleDatasetAsync(dataset);
         }
 
         private async void DatasetSamplerOnReceived(object? sender, TransferEventArgs args)
         {
             try
             {
+
                 var samplerContext = (DatasetSamplerContext)sender!;
+                var payload = args.Buffer;
+                _logger.LogInformation($"Read dataset with name {samplerContext.DatasetName} from asset with name {samplerContext.Asset.DisplayName}. Now publishing it to MQTT broker: {Encoding.UTF8.GetString(payload)}");
                 
                 Dataset dataset = samplerContext.Asset.DatasetsDictionary![samplerContext.DatasetName];
                 var topic = dataset.Topic != null ? dataset.Topic! : samplerContext.Asset.DefaultTopic!;
                 var mqttMessage = new MqttApplicationMessage(topic.Path!)
                 {
-                    PayloadSegment = args.Buffer,
+                    PayloadSegment = payload,
                     Retain = topic.Retain == RetainHandling.Keep,
                 };
 
