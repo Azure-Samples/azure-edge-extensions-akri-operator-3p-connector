@@ -1,38 +1,40 @@
 ﻿using Azure.Iot.Operations.Services.Assets;
-using Azure.Iot.Operations.Connector;
 using Rfc1006LibNet.Advanced;
 using Rfc1006LibNet.Advanced.EventArgs;
 
 namespace TcpConnector
 {
     /// <inheritdoc />
-    internal class TcpDatasetSampler : IDatasetSampler
+    internal class TcpDatasetSampler : IEventDatasetSampler
     {
         private Rfc1006Client _rfcClient;
-        private Asset _asset;
+        private DatasetSamplerContext _samplerContext;
 
         /// <summary>
         /// ctor
         /// </summary>
-        /// <param name="rfcClient"></param>
-        /// <param name="asset"></param>
-        public TcpDatasetSampler(Rfc1006Client rfcClient, Asset asset)
+        /// <param name="rfcClient">Rfc 1006 client</param>
+        /// <param name="samplerContext">Dataset sampler context</param>
+        public TcpDatasetSampler(Rfc1006Client rfcClient, DatasetSamplerContext samplerContext)
         {
             _rfcClient = rfcClient;
-            _asset = asset;
+            _samplerContext = samplerContext;
         }
+
+        public event EventHandler<TransferEventArgs>? Received;
 
         public async Task<byte[]> SampleDatasetAsync(Dataset dataset, CancellationToken cancellationToken = default)
         {
             try
             {
                 var samplingInterval =
-                    _asset.DefaultDatasetsConfiguration?.RootElement.GetProperty("samplingInterval").GetDouble();
+                    _samplerContext.Asset.DefaultDatasetsConfiguration?.RootElement.GetProperty("samplingInterval").GetDouble();
                 var timeToElapse = DateTime.UtcNow.AddMilliseconds(samplingInterval ?? 0);
                 
                 byte[]? payload = null;
                 _rfcClient.Received += (sender, args) =>
                 {
+                    Received?.Invoke(_samplerContext, args);
                     payload = args.Buffer;
                 } ;
                 _rfcClient.Connect();

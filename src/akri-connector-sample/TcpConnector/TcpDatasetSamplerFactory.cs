@@ -23,11 +23,12 @@ namespace TcpConnector
 				throw new InvalidOperationException(
 					$"Unrecognized dataset with name {dataset.Name} on asset with name {asset.DisplayName}");
 			
+			var url = new Uri(aep.TargetAddress);
 			var localTsap = aep.AdditionalConfiguration?.RootElement.GetProperty("localTSAP").GetString();
 			var remoteTsap = aep.AdditionalConfiguration?.RootElement.GetProperty("localTSAP").GetString();
-			var rfcClient = new Rfc1006Client(aep.TargetAddress, localTsap, remoteTsap);
+			var rfcClient = new Rfc1006Client(url.Host, url.Port, localTsap, remoteTsap);
 			
-			return new TcpDatasetSampler(rfcClient, asset);
+			return new TcpDatasetSampler(rfcClient, new DatasetSamplerContext(aep, asset, dataset.Name));
 		}
 	}
 }

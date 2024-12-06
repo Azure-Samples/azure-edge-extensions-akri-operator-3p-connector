@@ -6,7 +6,7 @@ IHost host = Host.CreateDefaultBuilder(args)
     {
         services.AddSingleton(MqttSessionClientFactoryProvider.MqttSessionClientFactory);
         services.AddSingleton(TcpDatasetSamplerFactory.TcpDatasetSamplerFactoryProvider);
-        services.AddHostedService<ConnectorWorker>();
+        services.AddHostedService<TcpConnectorWorker>();
     })
     .Build();
 
