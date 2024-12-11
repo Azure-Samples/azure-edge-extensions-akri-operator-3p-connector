@@ -11,7 +11,7 @@ infra: create_k3d_cluster deploy_aio_mqtt_broker deploy_rest_server install_aep_
 
 create_k3d_cluster:
 	@echo "Creating k3d cluster..."
-	k3d cluster create $(K3DCLUSTERNAME) $(PORTFORWARDING) --registry-use $(K3DREGISTRYNAME) --servers 1
+	k3d cluster create $(K3DCLUSTERNAME) $(PORTFORWARDING) --servers 1
 
 deploy_aio_mqtt_broker:
 	@echo "Deploying AIO MQTT Broker"
