@@ -12,7 +12,7 @@ all: infra deploy_assets deploy_asset_endpoint_profile deploy_3p_connector
 
 sample: infra deploy_assets_sample deploy_asset_endpoint_profile_sample deploy_3p_connector_sample
 
-infra: create_k3d_cluster deploy_aio_mqtt_broker deploy_rest_server install_aep_asset_crds install_akri_operator deploy_mqttui
+infra: create_k3d_cluster deploy_aio deploy_rest_server install_aep_asset_crds install_akri_operator deploy_mqttui
 
 create_k3d_cluster:
 	@echo "Creating k3d cluster..."
