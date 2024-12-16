@@ -11,14 +11,14 @@ using Rfc1006LibNet.Advanced.EventArgs;
 
 namespace TcpConnector
 {
-    public class TcpConnectorWorker : BackgroundService
+    public class TcpConnectorWorker : ConnectorWorker
     {
         private readonly ILogger<TcpConnectorWorker> _logger;
         private readonly MqttSessionClient _sessionClient;
         private readonly IDatasetSamplerFactory _datasetSamplerFactory;
 
         // Mapping of asset name to the dictionary that maps a dataset name to its sampler
-        private Dictionary<string, Dictionary<string, IEventDatasetSampler>> _datasetSamplers = new();
+        private readonly Dictionary<string, Dictionary<string, IEventDatasetSampler>> _datasetSamplers = new();
 
         /// <summary>
         /// ctor
@@ -29,7 +29,7 @@ namespace TcpConnector
         public TcpConnectorWorker(
             ILogger<TcpConnectorWorker> logger, 
             MqttSessionClient mqttSessionClient, 
-            IDatasetSamplerFactory datasetSamplerFactory)
+            IDatasetSamplerFactory datasetSamplerFactory) : base(logger, mqttSessionClient, datasetSamplerFactory)
         {
             _logger = logger;
             _sessionClient = mqttSessionClient;
