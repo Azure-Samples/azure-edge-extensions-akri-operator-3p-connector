@@ -1,0 +1,25 @@
+apiVersion: deviceregistry.microsoft.com/v1
+kind: Asset
+metadata:
+  name: rfc1006-asset
+  namespace: azure-iot-operations
+spec:
+  displayName: Siemens PLC Asset
+  description: A sample for an Asset modeling a device with Tcp Endpoint to Siemens PLC
+  assetEndpointProfileRef: azure-iot-operations/plant-simulator-rfc1006 # <namespace>/<assetEndpointProfile.metadata.name>
+  defaultDatasetsConfiguration: |-
+   {
+      "samplingInterval": 2000,
+   }
+  defaultTopic:
+    path: /mqtt/plc/telegram
+    retain: Keep         
+  datasets:
+    - name: siemens_plc
+      dataPoints:
+        - dataSource: /api/telegram
+          name: telegram_message
+          dataPointConfiguration: |-
+           {
+              "configPath": "/usr/etc/config/siemensplc.config",
+           }

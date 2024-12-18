@@ -1,0 +1,11 @@
+apiVersion: deviceregistry.microsoft.com/v1
+kind: AssetEndpointProfile
+metadata:
+  name: plant-simulator-rfc1006
+  namespace: azure-iot-operations
+spec:
+  additionalConfiguration: '{"localTSAP": "AR__2EMU", "remoteTSAP": "EMU_2AR_"}'
+  authentication:
+    method: Anonymous
+  endpointProfileType: rfc1006
+  targetAddress: tcp://10.6.171.133:11340

@@ -1,0 +1,8 @@
+apiVersion: akri.microsoft.com/v1beta1
+kind: ConnectorConfig
+metadata:
+  name: tcp-connector-config
+  namespace: azure-iot-operations
+spec:
+  assetEndpointProfileType: rfc1006
+  image: tcpconnector:0.1.12
