@@ -1,15 +1,8 @@
 apiVersion: deviceregistry.microsoft.com/v1
 kind: AssetEndpointProfile
 metadata:
-  annotations:
-    kubectl.kubernetes.io/last-applied-configuration: |
-      {"apiVersion":"deviceregistry.microsoft.com/v1beta2","kind":"AssetEndpointProfile","metadata":{"annotations":{},"name":"plant-simulator-rfc1006","namespace":"azure-iot-operations"},"spec":{"additionalConfiguration":"{\"localTSAP\": \"AR__2EMU\", \"remoteTSAP\": \"EMU_2AR_\"}","authentication":{"method":"Anonymous"},"endpointProfileType":"rfc1006","targetAddress":"rfc1006.tcp://10.6.171.133:11340"}}
-  creationTimestamp: "2024-11-11T12:29:21Z"
-  generation: 1
   name: plant-simulator-rfc1006
   namespace: azure-iot-operations
-  resourceVersion: "341737328"
-  uid: 2d3c385e-50c0-412d-a26f-b4825cad5fa6
 spec:
   additionalConfiguration: '{"localTSAP": "AR__2EMU", "remoteTSAP": "EMU_2AR_"}'
   authentication:

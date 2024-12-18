@@ -6,7 +6,7 @@ This repository demonstrates how to leverage Akri Services to implement and laun
 
 Due to the spread of different IoT devices and specification in the industry there is a need for a flexible and extensible solution to connect and manage these devices. Akri Services and Azure IoT Operations SDKs particularly address this requirement and are built on top of Azure IoT Operations. 
 
-One of the Akri Services is the Akri Operator which is a component that dynamically schedule and deploys connectors to your Azure IoT Operations cluster and passes configurations to your connector, including those from Asset Endpoint Profiles and Assets.
+One of the Akri Services is the Akri Operator which is a component that dynamically schedules and deploys connectors to your Azure IoT Operations cluster and passes configurations to your connector, including those from Asset Endpoint Profiles and Assets.
 
 The Azure IoT Operations SDKs are a suite of tools and libraries across multiple languages designed to aid the development of applications for Azure IoT Operations. The focus of the SDKs is to assist customers in developing applications by providing features like high-availability, security, low-latency, and integration with other IoT Operations services.
 

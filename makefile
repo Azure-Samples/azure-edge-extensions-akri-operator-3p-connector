@@ -1,10 +1,10 @@
 K3DCLUSTERNAME := devcluster
 K3DREGISTRYNAME := k3d-devregistry.localhost:5500
 PORTFORWARDING := -p '8883:8883@loadbalancer' -p '1883:1883@loadbalancer'
-ARCCLUSTERNAME := arc-dapr-workflow
-STORAGEACCOUNTNAME := sadaprworkflow
-SCHEMAREGISTRYNAME := sr-dapr-workflow
-RESOURCEGROUP := rg-dapr-workflow
+ARCCLUSTERNAME := arc-akri-connector
+STORAGEACCOUNTNAME := saakriconnector
+SCHEMAREGISTRYNAME := sr-akri-connector
+RESOURCEGROUP := rg-akri-connector
 LOCATION := westeurope
 VERSION := $(shell grep "<ContainerImageTag>" ./src/akri-connector-sample/TcpConnector/TcpConnector.csproj | sed 's/[^0-9.]*//g')
 
@@ -20,7 +20,7 @@ create_k3d_cluster:
 
 deploy_aio:
 	@echo "Deploying AIO..."
-	bash ./infra/deploy-aio.sh $(ARCCLUSTERNAME) $(STORAGEACCOUNTNAME) $(SCHEMAREGISTRYNAME) $(RESOURCEGROUP) $(LOCATION)
+	bash ./deploy/deploy-aio.sh $(ARCCLUSTERNAME) $(STORAGEACCOUNTNAME) $(SCHEMAREGISTRYNAME) $(RESOURCEGROUP) $(LOCATION)
 
 deploy_rest_server:
 	@echo "Deploying REST Server"
