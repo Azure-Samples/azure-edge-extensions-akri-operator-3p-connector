@@ -47,7 +47,7 @@ This project framework provides the following features:
 ![vs-code](img/vs-code-desktop.png)
 4. Once the setup has been initialized, the dev container will have initialized K3D local container registry for development purposes. The environment is now ready for deploying the K3D cluster, initializing Azure IoT Operations and Azure Arc. The *optional* container registry is available inside the dev container and can be attached to the K3D cluster under `k3d-devregistry.localhost:5500` (not implemented).
 
-### Quickstart: Deploy Azure IoT Operations
+### Quickstart: Deploy Azure IoT Operations and Akri 3p Connector
 
 * Open a shell terminal to run all of the following scripts
 * Login into your Azure tenant and set a default subscription
@@ -60,6 +60,22 @@ az account show
 
 * Modify the [asset endpoint profile](deploy/tcp-asset-endpoint-profile-definition.yaml) and model the [asset](deploy/tcp-asset-definition.yaml) to match your device´s configuration
 * Run `make` in the root folder of the workspace to deploy the K3D cluster, Azure Arc-enable the cluster, install Azure IoT Operations and deploy the TcpConnector application as well. If you want to deploy only a specific target in the makefile you can run `make <target>`.
+
+* Run `make sample` to deploy the sample RestThermostatConnectorApp sample application
+
+### Validate published data to built-in MQTT broker
+
+1. Open a new Terminal in VS Code and run:
+
+   ```bash
+   kubectl exec --stdin --tty mqtt-client -n azure-iot-operations -- sh
+   ```
+
+2. Verify messages are publish on the topic configured in your asset endpoint profile by running the following command using the mosquitto client, e.g. if you deployed the RestThermostatConnectorApp sample it is */mqtt/machine/status* topic (configured in [rest-server-assetendpointprofile](./deploy/rest-server-asset-endpoint-profile-definition.yaml)):
+
+   ```bash
+   mosquitto_sub --host aio-broker --port 18883 --topic "/mqtt/machine/status" --debug --cafile /var/run/certs/ca.crt -D CONNECT authentication-method 'K8S-SAT' -D CONNECT authentication-data $(cat /var/run/secrets/tokens/broker-sat)
+   ```
 
 ### Deploy a new version of the application
 
