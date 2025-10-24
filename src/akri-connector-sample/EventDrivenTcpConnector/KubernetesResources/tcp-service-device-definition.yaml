@@ -1,0 +1,19 @@
+apiVersion: namespaces.deviceregistry.microsoft.com/v1
+kind: Device
+metadata:
+  name: plant-simulator-rfc1006
+  namespace: azure-iot-operations
+spec:
+  attributes:
+    deviceId: plant-simulator-rfc1006
+    deviceType: rfc1006
+  enabled: true
+  endpoints:
+    inbound:
+      my_tcp_endpoint:
+        additionalConfiguration: '{"localTSAP": "AR__2EMU", "remoteTSAP": "EMU_2AR_"}'
+        address: tcp://10.6.171.133:11340
+        endpointType: Microsoft.Tcp
+        version: "2"
+  uuid: 1234-5678-9012-3456
+  version: 2

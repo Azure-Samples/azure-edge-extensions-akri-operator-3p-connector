@@ -1,0 +1,26 @@
+apiVersion: namespaces.deviceregistry.microsoft.com/v1
+kind: Asset
+metadata:
+  name: rfc1006-asset
+  namespace: azure-iot-operations
+spec:
+  attributes:
+    assetId: rfc1006-asset
+    assetType: rfc1006
+  eventGroups:
+    - name: my-event-group  
+      events:
+        - name: thermostat_status_changed
+          destinations:
+            - configuration:
+                topic: /mqtt/plc/telegram
+              target: Mqtt
+          dataSource: "11340"
+  defaultDatasetsConfiguration: |-
+    {
+       "samplingInterval": 2000,
+    }
+  deviceRef:
+    deviceName: plant-simulator-rfc1006
+    endpointName: my_tcp_endpoint
+  version: 1
