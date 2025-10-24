@@ -8,19 +8,19 @@ spec:
     assetId: rfc1006-asset
     assetType: rfc1006
   eventGroups:
-    - name: my-event-group  
+    - name: telegram  
       events:
-        - name: thermostat_status_changed
+        - name: telegram_message_sent
           destinations:
             - configuration:
                 topic: /mqtt/plc/telegram
               target: Mqtt
-          dataSource: "11340"
+          dataSource: "/api/telegram"
   defaultDatasetsConfiguration: |-
     {
        "samplingInterval": 2000,
     }
   deviceRef:
     deviceName: plant-simulator-rfc1006
-    endpointName: my_tcp_endpoint
+    endpointName: plant_simulator_endpoint
   version: 1

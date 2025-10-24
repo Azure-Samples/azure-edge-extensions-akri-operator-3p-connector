@@ -1,7 +1,7 @@
 apiVersion: akri.iotoperations.azure.com/v1
 kind: ConnectorTemplate
 metadata:
-  name: tcp-template
+  name: tcp-connector
   namespace: azure-iot-operations
 spec:
   deviceInboundEndpointTypes:

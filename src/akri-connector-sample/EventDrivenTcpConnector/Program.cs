@@ -3,7 +3,7 @@
 
 using Azure.Iot.Operations.Connector;
 using Azure.Iot.Operations.Protocol;
-using EventDrivenTcpThermostatConnector;
+using EventDrivenTcpConnector;
 
 IHost host = Host.CreateDefaultBuilder(args)
     .ConfigureServices(services =>
@@ -13,7 +13,7 @@ IHost host = Host.CreateDefaultBuilder(args)
         services.AddSingleton(MessageSchemaProvider.Factory);
         services.AddSingleton(LeaderElectionConfigurationProvider.Factory);
         services.AddSingleton<IAdrClientWrapperProvider>(CustomAdrClientWrapperProvider.Factory);
-        services.AddHostedService<EventDrivenTcpThermostatConnectorWorker>();
+        services.AddHostedService<EventDrivenTcpConnectorWorker>();
     })
     .Build();
 

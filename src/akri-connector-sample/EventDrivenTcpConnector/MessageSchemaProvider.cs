@@ -1,15 +1,10 @@
 ﻿// Copyright (c) Microsoft Corporation.
 // Licensed under the MIT License.
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Azure.Iot.Operations.Connector;
 using Azure.Iot.Operations.Services.AssetAndDeviceRegistry.Models;
 
-namespace EventDrivenTcpThermostatConnector
+namespace EventDrivenTcpConnector
 {
     public class MessageSchemaProvider : IMessageSchemaProvider
     {

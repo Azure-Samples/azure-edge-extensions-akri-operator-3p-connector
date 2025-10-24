@@ -4,16 +4,17 @@ WORKDIR /app
 
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 ARG BUILD_CONFIGURATION=Release
-WORKDIR /src
-COPY ["akri-connector-sample/EventDrivenTcpConnector/EventDrivenTcpConnector.csproj", "akri-connector-sample/EventDrivenTcpConnector/"]
+WORKDIR /app
+COPY ["src/akri-connector-sample/EventDrivenTcpConnector/EventDrivenTcpConnector.csproj", "akri-connector-sample/EventDrivenTcpConnector/"]
 RUN dotnet restore "akri-connector-sample/EventDrivenTcpConnector/EventDrivenTcpConnector.csproj"
-COPY . .
-WORKDIR "/src/akri-connector-sample/EventDrivenTcpConnector"
-RUN dotnet build "./EventDrivenTcpConnector.csproj" -c $BUILD_CONFIGURATION -o /app/build
+COPY src ./src
+COPY lib ./lib
+WORKDIR "/app/src/akri-connector-sample/EventDrivenTcpConnector"
+RUN dotnet build "EventDrivenTcpConnector.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "./EventDrivenTcpConnector.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "EventDrivenTcpConnector.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app

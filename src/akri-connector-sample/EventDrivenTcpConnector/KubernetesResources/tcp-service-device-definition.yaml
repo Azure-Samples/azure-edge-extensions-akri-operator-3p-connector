@@ -10,7 +10,7 @@ spec:
   enabled: true
   endpoints:
     inbound:
-      my_tcp_endpoint:
+      plant_simulator_endpoint:
         additionalConfiguration: '{"localTSAP": "AR__2EMU", "remoteTSAP": "EMU_2AR_"}'
         address: tcp://10.6.171.133:11340
         endpointType: Microsoft.Tcp

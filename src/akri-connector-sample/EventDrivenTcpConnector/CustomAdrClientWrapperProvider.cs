@@ -1,18 +1,13 @@
 ﻿// Copyright (c) Microsoft Corporation.
 // Licensed under the MIT License.
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Azure.Iot.Operations.Connector;
 using Azure.Iot.Operations.Connector.Files;
 using Azure.Iot.Operations.Connector.Files.FilesMonitor;
 using Azure.Iot.Operations.Protocol;
 using Azure.Iot.Operations.Services.AssetAndDeviceRegistry;
 
-namespace EventDrivenTcpThermostatConnector
+namespace EventDrivenTcpConnector
 {
     internal class CustomAdrClientWrapperProvider : IAdrClientWrapperProvider
     {

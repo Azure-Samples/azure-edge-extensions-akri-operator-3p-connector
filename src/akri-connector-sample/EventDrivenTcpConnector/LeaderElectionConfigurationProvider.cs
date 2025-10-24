@@ -3,7 +3,7 @@
 
 using Azure.Iot.Operations.Connector;
 
-namespace EventDrivenTcpThermostatConnector
+namespace EventDrivenTcpConnector
 {
     public class LeaderElectionConfigurationProvider : IConnectorLeaderElectionConfigurationProvider
     {
