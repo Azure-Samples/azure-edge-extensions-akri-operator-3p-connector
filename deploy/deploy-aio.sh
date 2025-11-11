@@ -6,6 +6,7 @@ export SCHEMA_REGISTRY_NAME=$3
 export RESOURCE_GROUP=$4
 export SUBSCRIPTION_ID=$(az account show --query id -o tsv)
 export LOCATION=$5
+export DEVICE_REGISTRY_NAME=$6
 
 # register providers
 az provider register -n "Microsoft.ExtendedLocation"
@@ -13,6 +14,7 @@ az provider register -n "Microsoft.Kubernetes"
 az provider register -n "Microsoft.KubernetesConfiguration"
 az provider register -n "Microsoft.IoTOperations"
 az provider register -n "Microsoft.DeviceRegistry"
+az provider register -n "Microsoft.SecretSyncController"
 
 # install CLI extensions
 echo "Installing CLI extensions..."
@@ -20,7 +22,7 @@ az extension add --upgrade --name connectedk8s --yes
 az extension add --upgrade --name azure-iot-ops --yes
 
 # create resource group
-if [ !$(az group exists -n $RESOURCE_GROUP) ]; then
+if [ ! $(az group exists -n $RESOURCE_GROUP) ]; then
     echo "Creating RG $RESOURCE_GROUP..."
     az group create --location $LOCATION --resource-group $RESOURCE_GROUP --subscription $SUBSCRIPTION_ID
 fi
@@ -45,7 +47,11 @@ saId=$(az storage account create -n $STORAGE_ACCOUNT_NAME -g $RESOURCE_GROUP --e
 echo "Creating schema registry..."
 srId=$(az iot ops schema registry create -n $SCHEMA_REGISTRY_NAME -g $RESOURCE_GROUP --registry-namespace $SCHEMA_REGISTRY_NAME --sa-resource-id $saId -o tsv --query id)
 
+# create Azure device registry namespace
+echo "Creating Azure device registry namespace..."
+nsId=$(az iot ops ns create -n $DEVICE_REGISTRY_NAME -g $RESOURCE_GROUP -o tsv --query id)
+
 # deploy AIO
 echo "Deploying AIO..."
-az iot ops init --debug --cluster $CLUSTER_NAME -g $RESOURCE_GROUP
-az iot ops create -n $CLUSTER_NAME --cluster $CLUSTER_NAME -g $RESOURCE_GROUP --sr-resource-id $srId --kubernetes-distro K3s
+az iot ops init --cluster $CLUSTER_NAME -g $RESOURCE_GROUP
+az iot ops create -n $CLUSTER_NAME --cluster $CLUSTER_NAME -g $RESOURCE_GROUP --sr-resource-id $srId --ns-resource-id $nsId

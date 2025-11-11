@@ -14,7 +14,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "deploy", "deploy", "{65C870
 		..\deploy\rest-server-asset-endpoint-profile-definition.yaml = ..\deploy\rest-server-asset-endpoint-profile-definition.yaml
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestThermostatConnectorApp", "akri-connector-sample\RestThermostatConnectorApp\RestThermostatConnectorApp.csproj", "{B69EABA4-172B-48C2-A538-FBA510660849}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestThermostatConnectorApp", "deprecated\RestThermostatConnectorApp\RestThermostatConnectorApp.csproj", "{B69EABA4-172B-48C2-A538-FBA510660849}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{90080078-340B-4AD3-B2C4-6738A3EE772B}"
 	ProjectSection(SolutionItems) = preProject
@@ -25,7 +25,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{90080078-340
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventDrivenTcpConnector", "akri-connector-sample\EventDrivenTcpConnector\EventDrivenTcpConnector.csproj", "{7D831058-8694-4F43-92B7-0366263F5ADD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TcpConnector", "akri-connector-sample\TcpConnector\TcpConnector.csproj", "{F254E548-15C4-41A4-A098-6A560560D4AA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TcpConnector", "deprecated\TcpConnector\TcpConnector.csproj", "{F254E548-15C4-41A4-A098-6A560560D4AA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

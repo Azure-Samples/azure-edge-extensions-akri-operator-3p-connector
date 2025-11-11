@@ -5,4 +5,4 @@ metadata:
   namespace: azure-iot-operations
 spec:
   assetEndpointProfileType: rfc1006
-  image: tcpconnector:0.1.12
+  image: tcpconnector:__{image_version}__

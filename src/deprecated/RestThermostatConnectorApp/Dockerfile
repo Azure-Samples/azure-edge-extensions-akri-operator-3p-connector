@@ -5,12 +5,12 @@ WORKDIR /app
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /app
-COPY ["src/akri-connector-sample/RestThermostatConnectorApp/RestThermostatConnectorApp.csproj", "akri-connector-sample/RestThermostatConnectorApp/"]
-COPY ["src/akri-connector-sample/RestThermostatConnectorApp/NuGet.config", "akri-connector-sample/RestThermostatConnectorApp/"]
-RUN dotnet restore "akri-connector-sample/RestThermostatConnectorApp/RestThermostatConnectorApp.csproj" --configfile ./akri-connector-sample/RestThermostatConnectorApp/NuGet.config
+COPY ["src/deprecated/RestThermostatConnectorApp/RestThermostatConnectorApp.csproj", "src/deprecated/RestThermostatConnectorApp/"]
+COPY ["src/deprecated/RestThermostatConnectorApp/NuGet.config", "src/deprecated/RestThermostatConnectorApp/"]
+RUN dotnet restore "src/deprecated/RestThermostatConnectorApp/RestThermostatConnectorApp.csproj" --configfile ./src/deprecated/RestThermostatConnectorApp/NuGet.config
 COPY src ./src
 COPY lib ./lib
-WORKDIR "/app/src/akri-connector-sample/RestThermostatConnectorApp"
+WORKDIR "/app/src/deprecated/RestThermostatConnectorApp"
 RUN dotnet build "RestThermostatConnectorApp.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 FROM build AS publish

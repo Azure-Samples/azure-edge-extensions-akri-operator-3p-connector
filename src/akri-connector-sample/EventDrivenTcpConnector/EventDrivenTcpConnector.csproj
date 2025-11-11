@@ -6,6 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <AssemblyName>EventDrivenTcpConnector</AssemblyName>
+    <ContainerImageTag>0.1.0</ContainerImageTag>
     <RootNamespace>EventDrivenTcpConnector</RootNamespace>
   </PropertyGroup>
 

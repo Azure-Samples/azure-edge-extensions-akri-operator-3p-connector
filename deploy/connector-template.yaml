@@ -17,7 +17,7 @@ spec:
         replicas: 1
         tagDigestSettings:
           tagDigestType: tag
-          tag: "latest"
+          tag: "__{image_version}__"
   mqttConnectionConfiguration:
     host: "aio-broker:18883"
     authentication:
