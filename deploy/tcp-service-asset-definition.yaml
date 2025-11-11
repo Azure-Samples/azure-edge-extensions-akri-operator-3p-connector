@@ -1,0 +1,26 @@
+apiVersion: namespaces.deviceregistry.microsoft.com/v1
+kind: Asset
+metadata:
+  name: rfc1006-asset
+  namespace: azure-iot-operations
+spec:
+  attributes:
+    assetId: rfc1006-asset
+    assetType: rfc1006
+  eventGroups:
+    - name: telegram  
+      events:
+        - name: telegram_message_sent
+          destinations:
+            - configuration:
+                topic: /mqtt/plc/telegram
+              target: Mqtt
+          dataSource: "/api/telegram"
+  defaultDatasetsConfiguration: |-
+    {
+       "samplingInterval": 2000,
+    }
+  deviceRef:
+    deviceName: plant-simulator-rfc1006
+    endpointName: plant_simulator_endpoint
+  version: 1

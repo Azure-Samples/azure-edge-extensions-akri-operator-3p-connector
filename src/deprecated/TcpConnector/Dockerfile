@@ -5,12 +5,12 @@ WORKDIR /app
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /app
-COPY ["src/akri-connector-sample/TcpConnector/TcpConnector.csproj", "src/akri-connector-sample/TcpConnector/"]
-COPY ["src/akri-connector-sample/TcpConnector/NuGet.config", "src/akri-connector-sample/TcpConnector/"]
-RUN dotnet restore "src/akri-connector-sample/TcpConnector/TcpConnector.csproj" --configfile ./src/akri-connector-sample/TcpConnector/NuGet.config
+COPY ["src/deprecated/TcpConnector/TcpConnector.csproj", "src/deprecated/TcpConnector/"]
+COPY ["src/deprecated/TcpConnector/NuGet.config", "src/deprecated/TcpConnector/"]
+RUN dotnet restore "src/deprecated/TcpConnector/TcpConnector.csproj" --configfile ./src/deprecated/TcpConnector/NuGet.config
 COPY src ./src
 COPY lib ./lib
-WORKDIR "/app/src/akri-connector-sample/TcpConnector"
+WORKDIR "/app/src/deprecated/TcpConnector"
 RUN dotnet build "TcpConnector.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 FROM build AS publish   

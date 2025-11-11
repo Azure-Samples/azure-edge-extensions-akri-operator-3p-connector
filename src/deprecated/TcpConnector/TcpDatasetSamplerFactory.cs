@@ -38,7 +38,7 @@ namespace TcpConnector
 			
 			var url = new Uri(aep.TargetAddress);
 			var localTsap = aep.AdditionalConfiguration?.RootElement.GetProperty("localTSAP").GetString();
-			var remoteTsap = aep.AdditionalConfiguration?.RootElement.GetProperty("localTSAP").GetString();
+			var remoteTsap = aep.AdditionalConfiguration?.RootElement.GetProperty("remoteTSAP").GetString();
 			var rfcClient = new Rfc1006Client(url.Host, url.Port, localTsap, remoteTsap);
 			
 			return new TcpDatasetSampler(rfcClient, new DatasetSamplerContext(aep, asset, dataset.Name), _logger);

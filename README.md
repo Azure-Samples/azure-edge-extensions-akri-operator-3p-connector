@@ -58,10 +58,20 @@ az account set --subscription "<mysubscription_name_or_id>"
 az account show
 ```
 
-* Modify the [asset endpoint profile](deploy/tcp-asset-endpoint-profile-definition.yaml) and model the [asset](deploy/tcp-asset-definition.yaml) to match your device´s configuration
-* Run `make` in the root folder of the workspace to deploy the K3D cluster, Azure Arc-enable the cluster, install Azure IoT Operations and deploy the TcpConnector application as well. If you want to deploy only a specific target in the makefile you can run `make <target>`.
+* Modify the [device configuration](deploy/tcp-service-device-definition.yaml) and model the [asset](deploy/tcp-service-asset-definition.yaml) to match your device´s configuration
+* Run `make` in the root folder of the workspace to deploy the K3D cluster, Azure Arc-enable the cluster, install Azure IoT Operations and deploy the EventDrivenTcpConnector application as well. If you want to deploy only a specific target in the makefile you can run `make <target>`.
+
+<details>
+
+  <summary>Deprecated AssetEndpointProfile Configuration</summary>
+Runs the deprecated TcpConnector application instead of the EventDrivenTcpConnector application based on the AssetEndpointProfile and Asset definitions which is still supported but not recommended for new developments
+
+* Modify the [asset endpoint profile](deploy/tcp-asset-endpoint-profile-definition.yaml) and model the [asset](deploytcp-asset-definition.yaml) to match your device´s configuration
+* Run `make` in the root folder of the workspace to deploy the K3D cluster, Azure Arc-enable the cluster, install Azure IoTOperations and deploy the TcpConnector application as well. If you want to deploy only a specific target in the makefile you canrun `make <target>`.
 
 * Run `make sample` to deploy the sample RestThermostatConnectorApp sample application
+
+</details>
 
 ### Validate published data to built-in MQTT broker
 
