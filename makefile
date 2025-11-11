@@ -1,11 +1,11 @@
 K3DCLUSTERNAME := devcluster
 K3DREGISTRYNAME := k3d-devregistry.localhost:5500
 PORTFORWARDING := -p '8883:8883@loadbalancer' -p '1883:1883@loadbalancer'
-ARCCLUSTERNAME := arc-akri-connector-004
-STORAGEACCOUNTNAME := saakriconnector004
-SCHEMAREGISTRYNAME := sr-akri-connector-004
-DEVICEREGISTRYNAME := adr-akri-connector-004
-RESOURCEGROUP := rg-akri-connector-004
+ARCCLUSTERNAME := arc-akri-connector
+STORAGEACCOUNTNAME := saakriconnector
+SCHEMAREGISTRYNAME := sr-akri-connector
+DEVICEREGISTRYNAME := adr-akri-connector
+RESOURCEGROUP := rg-akri-connector
 LOCATION := westeurope
 VERSION := $(shell grep "<ContainerImageTag>" ./src/akri-connector-sample/EventDrivenTcpConnector/EventDrivenTcpConnector.csproj | sed 's/[^0-9.]*//g')
 VERSIONDEPRECATED := $(shell grep "<ContainerImageTag>" ./src/deprecated/TcpConnector/TcpConnector.csproj | sed 's/[^0-9.]*//g')

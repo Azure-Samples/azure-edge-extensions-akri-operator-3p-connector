@@ -22,7 +22,8 @@ az extension add --upgrade --name connectedk8s --yes
 az extension add --upgrade --name azure-iot-ops --yes
 
 # create resource group
-if [ ! $(az group exists -n $RESOURCE_GROUP) ]; then
+echo "Checking RG $RESOURCE_GROUP..."
+if [ !$(az group exists -n $RESOURCE_GROUP) ]; then
     echo "Creating RG $RESOURCE_GROUP..."
     az group create --location $LOCATION --resource-group $RESOURCE_GROUP --subscription $SUBSCRIPTION_ID
 fi
