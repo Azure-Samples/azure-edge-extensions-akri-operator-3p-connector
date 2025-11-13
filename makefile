@@ -91,7 +91,7 @@ build_3p_connector_image:
 deploy_3p_connector_template:
 	@echo "Deploying 3p Connector Template"
 	# on a mac (sed -i '' "s?__{image_version}__?$(VERSION)?g" ./deploy/connector-template.yaml)
-	sed -i '' "s?__{image_version}__?$(VERSION)?g" ./deploy/connector-template.yaml
+	sed -i "s?__{image_version}__?$(VERSION)?g" ./deploy/connector-template.yaml
 	kubectl apply -f ./deploy/connector-template.yaml
 
 deploy_mqttui:
