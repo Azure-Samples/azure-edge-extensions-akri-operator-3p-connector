@@ -85,7 +85,7 @@ deploy_3p_connector_config_sample_deprecated:
 
 build_3p_connector_image:
 	@echo "Building 3p Connector Image"
-	docker build . -f ./src/deprecated/TcpConnector/Dockerfile -t eventdriventcpconnector:$(VERSION)
+	docker build . -f ./src/akri-connector-sample/EventDrivenTcpConnector/Dockerfile -t eventdriventcpconnector:$(VERSION)
 	k3d image import eventdriventcpconnector:$(VERSION) -c $(K3DCLUSTERNAME)
 
 deploy_3p_connector_template:
