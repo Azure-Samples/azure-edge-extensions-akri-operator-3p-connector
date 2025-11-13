@@ -85,13 +85,13 @@ deploy_3p_connector_config_sample_deprecated:
 
 build_3p_connector_image:
 	@echo "Building 3p Connector Image"
-	docker build . -f ./src/deprecated/TcpConnector/Dockerfile -t eventdriventcpconnector:$(VERSION)
+	docker build . -f ./src/akri-connector-sample/EventDrivenTcpConnector/Dockerfile -t eventdriventcpconnector:$(VERSION)
 	k3d image import eventdriventcpconnector:$(VERSION) -c $(K3DCLUSTERNAME)
 
 deploy_3p_connector_template:
 	@echo "Deploying 3p Connector Template"
 	# on a mac (sed -i '' "s?__{image_version}__?$(VERSION)?g" ./deploy/connector-template.yaml)
-	sed -i '' "s?__{image_version}__?$(VERSION)?g" ./deploy/connector-template.yaml
+	sed -i "s?__{image_version}__?$(VERSION)?g" ./deploy/connector-template.yaml
 	kubectl apply -f ./deploy/connector-template.yaml
 
 deploy_mqttui:
